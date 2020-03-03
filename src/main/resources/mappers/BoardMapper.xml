@@ -4,12 +4,12 @@
 <mapper namespace="net.jetalab.spreinglab05.dao.BoardDAO">
 
     <insert id="newBoard" parameterType="net.jetalab.spreinglab05.dto.BoardDTO" useGeneratedKeys="true" keyProperty="seq">
-        INSERT INTO lab05(`title`, `contents`, `author`, `password`)
-        VALUES (#{title}, #{contents}, #{author}, #{password})
+        INSERT INTO lab05(`title`, `contents`, `author`, `password`, `contents2`, `contents3`)
+        VALUES (#{title}, #{contents}, #{author}, #{password}, #{contents2}, #{contents3})
     </insert>
 
     <select id="getBoard" parameterType="Integer" resultType="net.jetalab.spreinglab05.dto.BoardDTO">
-        SELECT `seq`, `title`, `contents`, `author`, `reads`
+        SELECT `seq`, `title`, `contents`, `author`,`password`, `reads`, `contents2`, `contents3`
           FROM lab05
          WHERE `seq` = #{param}
            AND `deleted` = 'N'
